@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script defer src="./nav-js/nav.js"></script>
+    <link rel="stylesheet" href="./nav-js/nav.css">
+    
     <script defer src="./index.js"></script>
     <link rel="stylesheet" href="./index.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -14,27 +17,14 @@
 <body>
     <div class="container">
         <header class="header">
-        <nav class="nav">
-            <img class="nav__logo" src="./imagenes/Logo.png" alt="Logo" class="header__nav-logo">
-           <div class="nav__menu">
-            <img class="nav__menu-img" src="./imagenes/lista.png" alt="Menu">
-                <a class="nav__menu-link" href="">Portfolio</a>
-                <a class="nav__menu-link" href="">Servicios</a>
-                <a class="nav__menu-link" href="">Contacto</a>
-            <div class="menu-oculto"> 
-                <div class="menu-oculto__display">
-                <img class="menu-oculto__display-close" src="./imagenes/cancel.png" alt="">
-                <a class="menu-oculto__display-a" href="">Portfolio</a>
-                <a class="menu-oculto__display-a" href="">Servicios</a>
-                <a class="menu-oculto__display-a" href="">Contacto</a>
-            </div></div>
-           </div>
-         </nav>
+        <div class="nav__container"></div>
+      
         <h1 class="header__h1">Hola</h1>
         <p class="header__p">Soy Martin</p>
         </header>
 
         <section class="presentacion">
+            <img class="presentacion__img" src="./imagenes/hero.png" alt="persona">
             <h2 class="presentacion__h1">Soy Martin</h2>
             <p class="presentacion__p">Algo interesante sobre mi Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
             Nulla dui quam, sollicitudin at enim id, sodales vehicula velit. Aenean lobortis 
@@ -71,8 +61,9 @@
           </div>
         </section>
 <div class="form-container">
+    
+    <h2 class="form__container-h2">Escribime</h2>
     <form class="form" action="post">
-            <h2 class="form__h2">Escribime</h2>
             <label for="">
                 <h3 class="form__h3">NOMBRE</h3>
             </label>
@@ -91,9 +82,12 @@
 
     <footer class="footer">
         <img class="footer__logo" src="./imagenes/Logo.png" alt="logo">
-        <p class="footer__p">Instagram <img class="footer__p-red" src="./imagenes/instagram-logo.png" alt="logo"></p>
-        <p class="footer__p">Linkedin <img class="footer__p-red" src="./imagenes/linkedin.png" alt="logo"></p>
-        <p class="footer__p">Github <img class="footer__p-red" src="./imagenes/github.png" alt="logo"></p>
+        <div class="footer__insta">
+        <p class="footer__link-cont-p">Instagram <img class="footer__link-cont-red" src="./imagenes/instagram-logo.png" alt="logo"></p>
+        <p class="footer__link-cont-p">Linkedin <img class="footer__link-cont-red" src="./imagenes/linkedin.png" alt="logo"></p>
+        <p class="footer__link-cont-p">Github <img class="footer__link-cont-red" src="./imagenes/github.png" alt="logo"></p>
+    </div>
+        
     </footer>
         
 </div>
