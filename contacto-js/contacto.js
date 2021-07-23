@@ -25,11 +25,12 @@ formularioEl.addEventListener("submit",(e)=>{
     e.preventDefault()
     const formData = new FormData(e.target);
     const objeto = Object.fromEntries(formData.entries());
-    console.log(objeto)
     let mensaje = e.target.mensaje.value
     let nombre = e.target.nombre.value
     let email = e.target.email.value
+    // una validación MUY basica de prueba =P
     if(mensaje.length > 5){ 
+        // esta parte envia el mensaje
         fetch("https://apx-api.vercel.app/api/utils/dwf", {
       method: "POST",
       headers: { "content-type": "application/json" },
@@ -37,7 +38,9 @@ formularioEl.addEventListener("submit",(e)=>{
         to: "martoxxx100@gmail.com",
         message: mensaje,
       }),
-    }).then(() => {
+    })
+    //una vez enviado el mensaje esta parte deberia borrar todos los campos
+    .then(() => {
         alert("El email se a enviado correctamente");
         nombre= "";
         email ="";
