@@ -2,7 +2,7 @@ function crearFormulario(el){
 const contenedorEl = document.createElement("div")
 contenedorEl.classList.add("form-container")
 contenedorEl.innerHTML = ` <h2 class="form__container-h2">Escribime</h2>
-<form class="form" method="post" >
+<form class="form" method="post" name="contacto" >
         <label for="">
             <h3 class="form__h3">NOMBRE</h3>
         </label>
@@ -27,7 +27,6 @@ formularioEl.addEventListener("submit",(e)=>{
     const objeto = Object.fromEntries(formData.entries());
     let mensaje = e.target.mensaje.value
     let nombre = e.target.nombre.value
-    let email = e.target.email.value
     // una validación MUY basica de prueba =P
     if(mensaje.length > 5){ 
         // esta parte envia el mensaje
@@ -36,15 +35,13 @@ formularioEl.addEventListener("submit",(e)=>{
       headers: { "content-type": "application/json" },
       body: JSON.stringify({
         to: "martoxxx100@gmail.com",
-        message: mensaje,
+        message: `hola recibiste este mensaje de parte de <strong>${nombre}</strong>:<br>${mensaje}`
       }),
     })
-    //una vez enviado el mensaje esta parte deberia borrar todos los campos
     .then(() => {
         alert("El email se a enviado correctamente");
-        nombre= "";
-        email ="";
-       mensaje = "";
+        document.forms["contacto"].reset()
+       
       })
       }else(alert("el mensaje que desea enviar es demasiado corto"))
     

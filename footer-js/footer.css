@@ -1,0 +1,42 @@
+.footer{
+    background-color: #2C2C2C;
+    color: #fff;
+    height: 498px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+@media(min-width:769px){
+    .footer{
+        height: 316px;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
+.footer__logo{
+    width: 197px;
+    height: 48px;
+}
+@media(min-width:769px){
+    .footer__logo{
+        width: 197px;
+        height: 100px;
+        margin-left: 80px;
+        margin-top: 0;
+    }
+}
+@media(min-width:769px){
+    .footer__insta{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        margin: 102px 116px auto auto;
+    }
+    
+}
+
+.footer__p{
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+}
