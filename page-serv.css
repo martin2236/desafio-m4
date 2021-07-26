@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+}
+.header{
+    background: #000;
+    color:#fff;
+}
+@media(min-width: 668px){
+    .header{
+        background: linear-gradient(#61045F, #aa076b);
+    height: 654px;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    }
+}
+.header__h1{
+    display: none;
+    font-size: 48px;
+    padding-left: 86px;
+}
+@media(min-width: 668px){
+    .header__h1{
+     
+        display: initial;
+    }
+}
+.servicios-contenedor{
+    background-color: #000;
+    color:#fff;
+    overflow: hidden;
+}
+@media(min-width: 668px){
+    .servicios-contenedor{
+        background: initial;
+        color: initial;
+        overflow:initial;
+    }
+}

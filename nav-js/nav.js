@@ -5,15 +5,15 @@ function crearNav(el){
     <img class="nav__logo" src="./imagenes/Logo.png" alt="Logo" class="header__nav-logo">
     <div class="nav__menu">
         <img class="nav__menu-img" src="./imagenes/lista.png" alt="Menu">
-        <a class="nav__menu-link" href="portfolio.html">Portfolio</a>
-        <a class="nav__menu-link" href="servicios.html">Servicios</a>
-        <a class="nav__menu-link" href="contacto.html">Contacto</a>
+        <a class="nav__menu-link" href="./portfolio.html">Portfolio</a>
+        <a class="nav__menu-link" href="./servicios.html">Servicios</a>
+        <a class="nav__menu-link" href="./contacto.html">Contacto</a>
         <div class="menu-oculto"> 
             <div class="menu-oculto__display">
                 <img class="menu-oculto__display-close" src="./imagenes/cancel.png" alt="">
-                <a class="menu-oculto__display-a" href="">Portfolio</a>
-                <a class="menu-oculto__display-a" href="">Servicios</a>
-                <a class="menu-oculto__display-a" href="">Contacto</a>
+                <a class="menu-oculto__display-a" href="./portfolio.html">Portfolio</a>
+                <a class="menu-oculto__display-a" href="./servicios.html">Servicios</a>
+                <a class="menu-oculto__display-a" href="./contacto.html">Contacto</a>
             </div>
         </div>
    </div>
