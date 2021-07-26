@@ -5,9 +5,9 @@ function crearNav(el){
     <img class="nav__logo" src="./imagenes/Logo.png" alt="Logo" class="header__nav-logo">
     <div class="nav__menu">
         <img class="nav__menu-img" src="./imagenes/lista.png" alt="Menu">
-        <a class="nav__menu-link" href="">Portfolio</a>
-        <a class="nav__menu-link" href="">Servicios</a>
-        <a class="nav__menu-link" href="">Contacto</a>
+        <a class="nav__menu-link" href="portfolio.html">Portfolio</a>
+        <a class="nav__menu-link" href="servicios.html">Servicios</a>
+        <a class="nav__menu-link" href="contacto.html">Contacto</a>
         <div class="menu-oculto"> 
             <div class="menu-oculto__display">
                 <img class="menu-oculto__display-close" src="./imagenes/cancel.png" alt="">
