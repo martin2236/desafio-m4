@@ -1,10 +1,11 @@
+//TRAE LOS DATOS DESDE EL CMS
 function getServicios(){
     return fetch("https://cdn.contentful.com/spaces/o1xrr1wfzugd/environments/master/entries?access_token=ddL6FyukkU8wBU0OyQvnhRk4_ZZOSl5Jh4JaqCvc_1A&content_type=trabajos")
     .then(response => response.json())
   .then(data => {
       const datos = data.items.map((item)=>{
              const imagen = buscarImagen(item.fields.imagen.sys.id, data)
-             //console.log(imagen.fields.file.url)
+             //console.log(item.fields.url)
         return {
               title:item.fields.titulo,
               descripcion:item.fields.descripcion,
@@ -15,30 +16,13 @@ function getServicios(){
       return datos
   });
 }
+//BUSCA LAS IMAGENES
 function buscarImagen(id, datos){
     const imagen = datos.includes.Asset.find((asset) => {
         return asset.sys.id == id; });
        return imagen 
 }
-
-function crearCards(datos){
-const contenedor = document.querySelector(".portfolio__container")
-const fragment = document.createDocumentFragment()
-const template = document.querySelector(".template").content
-//console.log(datos) 
-const datosFiltrados = datos
-datosFiltrados.forEach(item =>{
-    template.querySelector(".card__h3").textContent = item.title
-    template.querySelector(".card__p").textContent = item.descripcion
-    template.querySelector(".card__url").textContent = item.url
-    template.querySelector(".card__url").hrf = item.url
-    template.querySelector(".card__img").scr = item.imagen
-    const clone = template.cloneNode(true)
-    fragment.appendChild(clone)
-})
-contenedor.appendChild(fragment)
-}
-
+//CREA UN TEMPLATE
 function crearPortfolio(el){
     const contenedor = document.createElement("div")
     contenedor.classList.add("portfolio")
@@ -54,11 +38,31 @@ function crearPortfolio(el){
       </div>`
     el.appendChild(contenedor)
  }
+//AGREGA LOS VALORES AL TEMPLATE
+function crearCards(datos){
+    //console.log(datos.url) 
+const contenedor = document.querySelector(".portfolio__container")
+const fragment = document.createDocumentFragment()
+const template = document.querySelector(".template").content
+template.querySelector(".card__h3").textContent = datos.title
+template.querySelector(".card__p").textContent = datos.descripcion
+template.querySelector(".card__url").textContent = datos.url
+template.querySelector(".card__url").hrf = datos.url // el link esta pero no redirecciona
+template.querySelector(".card__img").scr = datos.imagen //la url de la imagen esta pero no aparece en el navegador
+const clone = template.cloneNode(true)
+fragment.appendChild(clone)
+contenedor.appendChild(fragment)
+}
+
+
 
 function main(){
     getServicios().then((item)=>{
-        crearCards(item)
+        for(const i of item){
+            crearCards(i)
+        }
     })
+   
     const header = document.querySelector(".nav__container")
     const footer = document.querySelector(".footer__contenedor")
     const portfolio = document.querySelector (".port-container")
