@@ -10,7 +10,7 @@ function crearPortfolio(el){
             <img class="card__img" src="./imagenes/coding.png" alt="Computadora">
             <h3 class="card__h3"></h3>
             <p class="card__p"></p>
-     
+            <a class="card__url" href=""></a>
       </template>
       </div>`
     el.appendChild(contenedor)
@@ -33,6 +33,8 @@ function crearPortfolio(el){
     datosFiltrados.forEach(item =>{
         template.querySelector(".card__h3").textContent = item.fields.titulo
         template.querySelector(".card__p").textContent = item.fields.descripcion
+        template.querySelector(".card__url").textContent = item.fields.url
+        template.querySelector(".card__url").hrf = item.fields.url
         template.querySelector(".card__img").scr = imagenes
         const clone = template.cloneNode(true)
         fragment.appendChild(clone)
