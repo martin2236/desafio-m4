@@ -2,7 +2,7 @@ function crearNav(el){
     const contenedor = document.createElement("nav")
     contenedor.classList.add("nav")
     contenedor.innerHTML = `   
-    <a class="" href="./index.html">   <img class="nav__logo" src="./imagenes/Logo.png" alt="Logo" class="header__nav-logo"></a>
+    <a class="" href="./index.html"><img class="nav__logo" src="./imagenes/Logo.png" alt="Logo" class="header__nav-logo"></a>
  
     <div class="nav__menu">
         <img class="nav__menu-img" src="./imagenes/lista.png" alt="Menu">
