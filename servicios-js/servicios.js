@@ -1,4 +1,24 @@
-
+    function getServicios(){
+    return fetch("https://cdn.contentful.com/spaces/o1xrr1wfzugd/environments/master/entries?access_token=ddL6FyukkU8wBU0OyQvnhRk4_ZZOSl5Jh4JaqCvc_1A&content_type=work")
+    .then(response => response.json())
+  .then(data => {
+    const datos = data.items.map((item)=>{
+      const imagen = buscarImagen(item.fields.imagen.sys.id, data)
+     // console.log(imagen)
+     return {
+       titulo:item.fields.titulo,
+       descripcion:item.fields.descripcion,
+       imagen:imagen.fields.file.url
+     }
+    })
+    return datos
+  });
+}
+function buscarImagen(id, datos){
+  const imagen = datos.includes.Asset.find((asset) => {
+      return asset.sys.id == id; });
+     return imagen 
+}
 function crearServicios(el){
 
 //crea el contenedor de los servicios
@@ -17,27 +37,24 @@ contenedor.innerHTML = ` <h2 class="servicios__h2">Mis servicios</h2>
 el.appendChild(contenedor)
 
 // importa los datos desde contentful
-    function getServicios(){
-    const datos = fetch("https://cdn.contentful.com/spaces/o1xrr1wfzugd/environments/master/entries?access_token=ddL6FyukkU8wBU0OyQvnhRk4_ZZOSl5Jh4JaqCvc_1A&content_type=work")
-    .then(response => response.json())
-  .then(data => crearCards(data));
-}
+getServicios().then((item)=>{
+  console.log(item)
+ for(i of item){
+   crearCards(i)
+ }
+})
 //crea las cards con el contenido importado FALTA SOLUCIONAR LAS IMAGENES
 function crearCards(datos){
-    const contenedor = document.querySelector(".servicios__container")
+  console.log(datos)
+const contenedor = document.querySelector(".servicios__container")
 const fragment = document.createDocumentFragment()
 const template = document.querySelector(".template").content
-//console.log(datos.includes.Asset[0].fields.file.url) URL DE IMAGENES
-const datosFiltrados = datos.items
-const imagenes = datos.includes.Asset[0].fields.file.url
+template.querySelector(".card__h3").textContent = datos.titulo
+template.querySelector(".card__p").textContent = datos.descripcion
+template.querySelector(".card__img").src = datos.imagen
+const clone = template.cloneNode(true)
+fragment.appendChild(clone)
 
-datosFiltrados.forEach(item =>{
-    template.querySelector(".card__h3").textContent = item.fields.titulo
-    template.querySelector(".card__p").textContent = item.fields.descripcion
-    template.querySelector(".card__img").scr = imagenes
-    const clone = template.cloneNode(true)
-    fragment.appendChild(clone)
-})
 contenedor.appendChild(fragment)
 }
 

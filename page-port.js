@@ -47,8 +47,8 @@ const template = document.querySelector(".template").content
 template.querySelector(".card__h3").textContent = datos.title
 template.querySelector(".card__p").textContent = datos.descripcion
 template.querySelector(".card__url").textContent = datos.url
-template.querySelector(".card__url").hrf = datos.url // el link esta pero no redirecciona
-template.querySelector(".card__img").scr = datos.imagen //la url de la imagen esta pero no aparece en el navegador
+template.querySelector(".card__url").href = datos.url // el link esta pero no redirecciona
+template.querySelector(".card__img").src = datos.imagen //la url de la imagen esta pero no aparece en el navegador
 const clone = template.cloneNode(true)
 fragment.appendChild(clone)
 contenedor.appendChild(fragment)
