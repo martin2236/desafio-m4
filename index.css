@@ -58,6 +58,7 @@
         background-color: #fff;
         color: #000;
         grid-template-columns: 1fr 1fr;
+        justify-content: flex-end;
     }
 }
 .presentacion__img{
@@ -66,10 +67,7 @@
 @media(min-width:769px){
     .presentacion__img{
         display: inherit;
-        width: 380px;
-        height: 480px;
-        grid-column: 1/2;
-       margin-left: 40%;
+       
        margin-top: 57px;
     }
 }

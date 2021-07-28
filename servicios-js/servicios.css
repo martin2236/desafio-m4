@@ -15,9 +15,10 @@
 }
 @media(min-width:769px){
     .servicios__container{
-      display: flex;
-      flex-direction: row;
-      justify-content: space-around;
+     display: grid;
+     grid-template-columns: 1fr 1fr 1fr;
+     grid-template-rows: 1fr;
+     gap: 3%;
     }
 }
 .servicios{
